@@ -1,0 +1,30 @@
+<p>
+  <h1 class="pull-left">Your walls</h1>
+  <span class="pull-right">
+    <%= link_to 'New Wall', new_wall_path, :class => 'btn btn-primary' %>
+  </span>
+</p>
+
+<table class="table table-striped">
+  <tr>
+    <th>Title</th>
+    <th>Name</th>
+    <th>Query</th>
+    <th></th>
+  </tr>
+
+<% @walls.each do |wall| %>
+  <tr>
+    <td><%= wall.title %></td>
+    <td><%= wall.name %></td>
+    <td><%= wall.query %></td>
+    <td>
+      <span class="pull-right">
+        <%= link_to 'View', wall, :class => "label label-info" %>
+        <%= link_to 'Delete', wall, confirm: 'Are you sure?', method: :delete, :class => "label label-important" %>
+      </span>
+    </td>
+  </tr>
+<% end %>
+
+</table>

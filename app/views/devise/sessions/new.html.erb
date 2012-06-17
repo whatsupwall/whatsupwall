@@ -1,0 +1,39 @@
+<div class="well sign-in">
+
+  <div class="row">
+    <h1>Sign in</h1>
+
+    <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => "pull-left action"}) do |f| %>
+      <p>
+      <%= f.label :email %>
+      <%= f.email_field :email %>
+      </p>
+
+      <p>
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+      </p>
+
+      <%= f.hidden_field :remember_me, :value => 1 %>
+
+      <p>
+      <%= f.submit "Sign in", :class => 'btn-primary' %>
+      </p>
+    <% end %>
+
+    <div class="pull-right oauth">
+      <%- if devise_mapping.omniauthable? %>
+        <%- resource_class.omniauth_providers.each do |provider| %>
+          <p>
+            <%= link_to "Connect with #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider), :class => "btn btn-large btn-#{provider.to_s}" %>
+          </p>
+        <% end -%>
+      <% end -%>
+    </div>
+    <div style="clear: both;"></div>
+    <p>
+      Not a member yet? <%= link_to 'Sign up here', new_user_registration_path %>.
+    </p>
+  </div>
+
+</div>

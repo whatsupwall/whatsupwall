@@ -1,0 +1,77 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require bootstrap_and_overrides
+ *= require_self
+ *= require_directory .
+*/
+
+body {
+  font-family: 'Open Sans', helvetica neue, helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  padding-top: 0;
+}
+
+header {
+  padding: 8px 0 8px 0;
+  background-color: #353535;
+  background-image: -webkit-gradient( linear, left bottom, left top, color-stop(0.28, #2D2D2E), color-stop(0.67, #353535) );
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, .3);
+  border-bottom: 1px solid #F7F5F3;
+}
+
+.wrapper {
+  background-color: #fbfbfb;
+  padding: 24px 0 65px 0;
+  box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.hero-unit {
+  margin-bottom: 3em;
+  padding: 28px 32px;
+  background-color: #f7f5f3;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.well.sign-in {
+  width: 620px;
+  text-align: center;
+  margin: auto;
+}
+
+.well.sign-in .row {
+  margin: 0px;
+}
+
+.well.sign-in .action {
+  width: 300px;
+  text-align: left;
+}
+
+.well.sign-in .oauth {
+  width: 300px;
+  text-align: left;
+}
+
+.well.sign-in form .remember-me-label {
+  display: inline;
+}

@@ -1,0 +1,64 @@
+<div class="row">
+  <div class="span12">
+    <h1>Wall configuration</h1>
+    <p>
+      <b>Title:</b>
+      <%= @wall.title %>
+    </p>
+
+    <p>
+      <b>Name:</b>
+      <%= @wall.name %>
+    </p>
+
+    <p>
+      <b>Query:</b>
+      <%= @wall.query %>
+    </p>
+
+    <%= link_to 'Edit', edit_wall_path(@wall) %> |
+
+    <%= link_to 'Back', walls_path %>
+
+    <% if @wall.published? %>
+      <%= form_for @wall, :url => { :action => :unpublish } do |f| %>
+        <%= f.submit "Unpublish" %>
+      <% end %>
+    <% else %>
+      <%= form_for @wall, :url => { :action => :publish } do |f| %>
+        <%= f.submit "Publish" %>
+      <% end %>
+    <% end %>
+  </div>
+
+</div>
+<div class="row">
+  <div class="span12">
+    <h1>Preview</h1>
+    <div id="container"></div>
+  </div>
+</div>
+
+<script id="tweet" type="text/html">
+  {{#results}}
+  <div class="item" data-created-at="{{created_at}}" data-added-at="{{added_at}}">
+      <span class="author_name"><a href="https://twitter.com/#!/{{from_user}}">{{from_user_name}}</a></span>&nbsp;<span class="author_login">@{{from_user}}</span> <span class="create_from">{{created_from}}</span>
+      <p><img src="{{profile_image_url_https}}" alt="{{from_user}}" />
+      {{{text}}}</p>
+      {{#image_url}}
+      <div class="attached_media">
+          <img class="media" src="{{.}}" />
+      </div>
+      {{/image_url}}
+  </div>
+  {{/results}}
+</script>
+
+<%= stylesheet_link_tag "wall/isotop", "wall/whatsupwall", :media => "all" %>
+<%= javascript_include_tag "wall/wall" %>
+
+<script type="text/javascript">
+  $("#container").whatsupwall({
+    inputValue: "<%= @wall.query %>"
+  });
+</script>

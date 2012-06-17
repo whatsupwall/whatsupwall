@@ -1,0 +1,33 @@
+<%= form_for(@wall) do |f| %>
+  <% if @wall.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@wall.errors.count, "error") %> prohibited this wall from being saved:</h2>
+
+      <ul>
+      <% @wall.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  <p>
+  <p>
+    <%= f.label :name %>
+    <div class="input-prepend" id="recipe-url">
+      <span class="add-on"><%= root_url %><%= current_user.nickname %>/</span>
+      <%= f.text_field :name %>
+    </div>
+  </p>
+  <p>
+  </p>
+    <%= f.label :query %>
+    <%= f.text_field :query %>
+  </p>
+  <p>
+    <%= f.submit "Save", :class => 'btn-primary' %>
+  </p>
+<% end %>

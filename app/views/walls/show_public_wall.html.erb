@@ -1,0 +1,7 @@
+<% if @wall %>
+<script type="text/javascript">
+  $("#container").whatsupwall({
+    inputValue: "<%= @wall.query %>"
+  });
+</script>
+<% end %>
