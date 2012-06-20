@@ -76,6 +76,7 @@ class User
       user = User.new
       user.uid = access_token.uid
       user.name = data.name
+      user.nickname = data.nickname
       user.password = Devise.friendly_token[0,20]
       user.save :validate => false
       user

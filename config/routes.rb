@@ -12,8 +12,6 @@ Whatsupwall::Application.routes.draw do
   end
   match "/:nickname/:name" => "walls#show_public_wall", :as => :show_public_wall
 
-
-
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
