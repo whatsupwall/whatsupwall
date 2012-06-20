@@ -1,7 +1,9 @@
 <% if @wall %>
 <script type="text/javascript">
-  $("#container").whatsupwall({
-    inputValue: "<%= @wall.query %>"
-  });
+  $(document).ready(function() {
+    $("#container").whatsupwall({
+      inputValue: "<%= @wall.query %>"
+    });
+  })
 </script>
 <% end %>

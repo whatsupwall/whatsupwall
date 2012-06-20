@@ -55,7 +55,8 @@ class WallsController < ApplicationController
     current_user.walls << @wall
 
     respond_to do |format|
-      if @current_user.save
+      if @wall.valid?
+        @current_user.save :validate => false
         format.html { redirect_to @wall, notice: 'Wall was successfully created.' }
         format.json { render json: @wall, status: :created, location: @wall }
       else
