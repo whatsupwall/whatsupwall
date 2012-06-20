@@ -15,4 +15,5 @@ capybara-*.html
 rerun.txt
 pickle-email-*.html
 
+public/assets
 01_oauth_keys.rb
