@@ -45,6 +45,8 @@ class User
   before_validation(:on => :create) do
     self.nickname = self.name if (self.nickname == nil)
     self.nickname = nickname.parameterize
+    existing_users = User.where(:nickname => self.nickname)
+    self.nickname = self.nickname << 2.to_s unless existing_users.empty?
   end
 
   validate :uniqueness_of_email
@@ -73,12 +75,13 @@ class User
     if user = self.where(:uid => access_token.uid).first
       user
     else # Create a user with a stub password.
+      puts data.inspect
       user = User.new
       user.uid = access_token.uid
       user.name = data.name
-      user.nickname = data.nickname
+      user.nickname = data.screen_name
       user.password = Devise.friendly_token[0,20]
-      user.save :validate => false
+      user.save
       user
     end
   end
