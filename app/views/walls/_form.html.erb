@@ -27,6 +27,10 @@
     <%= f.label :query %>
     <%= f.text_field :query %>
   </p>
+  </p>
+    <%= f.label :refresh_time, "Refresh time (in ms)" %>
+    <%= f.number_field :refresh_time, :min => 1 %>
+  </p>
   <p>
     <%= f.submit "Save", :class => 'btn-primary' %>
   </p>

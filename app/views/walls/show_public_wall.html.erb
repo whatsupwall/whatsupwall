@@ -2,7 +2,8 @@
 <script type="text/javascript">
   $(document).ready(function() {
     $("#container").whatsupwall({
-      inputValue: "<%= @wall.query %>"
+      inputValue: "<%= @wall.query %>",
+      refreshTime: <%= @wall.refresh_time %>
     });
   })
 </script>

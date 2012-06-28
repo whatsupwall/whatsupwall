@@ -16,6 +16,18 @@
       <%= @wall.query %>
     </p>
 
+    <p>
+      <b>Refresh time:</b>
+      <%= @wall.refresh_time %>
+    </p>
+
+    <% if @wall.published? %>
+      <p>
+        <b>Wall URL:</b>
+        <%= root_url %><%= current_user.nickname %>/<%= @wall.name %>
+      </p>
+    <% end %>
+
     <%= link_to 'Edit', edit_wall_path(@wall) %> |
 
     <%= link_to 'Back', walls_path %>
@@ -59,6 +71,7 @@
 
 <script type="text/javascript">
   $("#container").whatsupwall({
-    inputValue: "<%= @wall.query %>"
+    inputValue: "<%= @wall.query %>",
+    refreshTime: <%= @wall.refresh_time %>
   });
 </script>
