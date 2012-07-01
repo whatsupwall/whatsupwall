@@ -21,6 +21,11 @@
       <%= @wall.refresh_time %>
     </p>
 
+    <p>
+      <b>Tweets per refresh:</b>
+      <%= @wall.rpp %>
+    </p>
+
     <% if @wall.published? %>
       <p>
         <b>Wall URL:</b>
@@ -72,6 +77,7 @@
 <script type="text/javascript">
   $("#container").whatsupwall({
     inputValue: "<%= @wall.query %>",
-    refreshTime: <%= @wall.refresh_time %>
+    refreshTime: <%= @wall.refresh_time %>,
+    rpp: <%= @wall.rpp %>
   });
 </script>

@@ -4,11 +4,12 @@ class Wall
   field :name, :type => String
   field :query, :type => String
   field :refresh_time, :type => Integer, :default => 4000
+  field :rpp, :type => Integer, :default => 35
   field :published, :type => Boolean, :default => false
 
   embedded_in :user
 
-  attr_accessible :title, :name, :query, :refresh_time, :published
+  attr_accessible :title, :name, :query, :refresh_time, :rpp, :published
 
   validates_presence_of :title, :name, :query
   validates_uniqueness_of :name

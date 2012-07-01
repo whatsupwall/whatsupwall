@@ -31,6 +31,10 @@
     <%= f.label :refresh_time, "Refresh time (in ms)" %>
     <%= f.number_field :refresh_time, :min => 1 %>
   </p>
+  </p>
+    <%= f.label :rpp, "Tweets per refresh" %>
+    <%= f.number_field :rpp, :min => 1 %>
+  </p>
   <p>
     <%= f.submit "Save", :class => 'btn-primary' %>
   </p>

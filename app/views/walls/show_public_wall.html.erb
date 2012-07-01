@@ -3,7 +3,8 @@
   $(document).ready(function() {
     $("#container").whatsupwall({
       inputValue: "<%= @wall.query %>",
-      refreshTime: <%= @wall.refresh_time %>
+      refreshTime: <%= @wall.refresh_time %>,
+      rpp: <%= @wall.rpp %>
     });
   })
 </script>
